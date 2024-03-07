@@ -18,4 +18,8 @@ The changes pushed to the Development branch are not live yet. The Development b
 
 Once the changes have been merged, the changes need to be pushed to the master branch, which then can be pulled onto the Linux AMI EC2 instance, where the web server is running. The last step would be to restart the web server so the changes become live and go the Linux AMI EC2's public IP address to check if everything is working perfectly.
 
-# 
+# Troubleshooting and Challenges: Solutions and Workarounds
+
+While under taking this project I had few issues I had to find solutions for. One of them was not setting up the right EC2 instance. At first started a normal EC2 instance rather than Amazon Linux AMI EC2. Which meant I couldn't install the right web server and wasted quite a bit of time before I figured it out.
+
+Another issue i had was that after following the instructions properly, when I went to access the website using the Linux AMI EC2's IP address, it would say "Unable to Connect". After hours of mindless searches I finally found two things that were causing these issues. Ones of them was the use of "https", instead I had to use "http" and it fixed one part of the issue. The other bit was the directory where I was saving the files for the website. They needed saved in /var/www/html, however for me another directory was being created, where it was being saved and the web server couldn't find where the files were, hence the error. I had to move the files into the "html" directory for the web server to recognise the files.
