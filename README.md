@@ -12,5 +12,10 @@ Then I had to configure httpd so that it would host my website rather than using
 
 Next step would be to use the Linux AMI EC2's public ip address to access the website, which is hosted by Apache HTTP Server (httpd).
 
-Then comes Continuos Intergration and Deployment. This is done by making a branch using "git checkout -b Development" and make changes away from the master branch, which is visible to everyone. After making any chances, they need to staged, commited with a meaningful message and then pushed to the Development branch on GitHub.
+Then comes Continuos Intergration and Deployment. This is done on the EC2 instance and by making a branch using "git checkout -b Development" and make changes away from the master branch, which is visible to everyone. After making any chances, they need to staged, commited with a meaningful message and then pushed to the Development branch on GitHub.
 
+The changes pushed to the Development branch are not live yet. The Development branch needs to be merged with Master branch using the "git checkout main" to go to the Master branch and then using the "git merger Development" to merge the change with Master branch.
+
+Once the changes have been merged, the changes need to be pushed to the master branch, which then can be pulled onto the Linux AMI EC2 instance, where the web server is running. The last step would be to restart the web server so the changes become live and go the Linux AMI EC2's public IP address to check if everything is working perfectly.
+
+# 
